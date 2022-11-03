@@ -2,8 +2,146 @@
   box-sizing: border-box;
 }
 
-html, body, div {
+html, body, div, p {
   padding: 0;
   margin: 0;
   border:none;
+}
+
+ div:focus { 
+   outline: none; 
+} 
+audio {
+  display: none;
+}
+
+body {
+  width:100%;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+#drum-machine {
+  display: flex;
+  width: 500px;
+  height: 400px;
+  flex-wrap: wrap;
+  background-color: antiquewhite;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  outline: 5px double orange;
+}
+
+#pad-bank {
+  display: flex;
+  height:100%;
+  width:350px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.drum-pad {
+  display: flex;
+  position:relative;
+  width:100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border: 10px outset #1C6EA4;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+.keyDown {
+  border: 10px inset #1C6EA4;
+  background-color: blue;
+}
+
+#controls {
+  display: flex;
+  position: relative;
+  width:150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#controls > span {
+  font-weight: bolder;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 18px;
+  margin: 15px 0 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: whitesmoke;
+  transition: .4s;
+  border-radius: 18px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 0;
+  bottom: -4px;
+  background-color: darkolivegreen;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: lightcoral;
+}
+
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+#display {
+  display: inline-block;
+  width: 120px;
+  height: 3rem;
+  background-color: silver;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width:500px) {
+  #drum-machine {
+    width: 350px;
+    height: 500px;
+    flex-direction: column-reverse;
+  }
+  #pad-bank {
+    height:350px;
+  }
+  #controls {
+    margin-bottom: 18px;
+  }
+  #display{
+    width:100%;
+  }
 }
